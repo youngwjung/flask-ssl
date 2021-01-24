@@ -6,16 +6,15 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 
 @app.route("/")
 def index():
-    print(request)
     if request.is_secure:
         return """
         <style>body {background-color: green}</style>
-        <h1 style='color:white'>You are visiting a secure website!</h1>"
+        <h1 style='color:white'>You are visiting a secure website!</h1>
         """
     else:
         return """
         <style>body {background-color: red}</style>
-        <h1 style='color:black'>You are visiting an insecure website!</h1>"
+        <h1 style='color:black'>You are visiting an insecure website!</h1>
         """
 
 if __name__ == "__main__":
